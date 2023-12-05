@@ -16,11 +16,12 @@ const AriDetails = () => {
     const fetchData = async () => {
       const value = collection(db, "ARIdetails");
       const res = await getDocs(value);
-
+      
       if (!res.empty) {
         const firstDocData = res.docs[0].data();
         setId(res.docs[0].id)
         setData(firstDocData);
+        console.log(firstDocData)
       }
 
 
@@ -54,7 +55,8 @@ const AriDetails = () => {
         <CheckBox data_name='hotel_availability' collection_name='ARIdetails' docId={id} name="Hotel availability" value={data?.hotel_availability ?? false} />
         <CheckBox data_name='postpaid_payment' collection_name='ARIdetails' docId={id} name="Postpaid payment" value={data?.postpaid_payment ?? false} />
         <CheckBox data_name='prepaid_payment' collection_name='ARIdetails' docId={id} name="Prepaid payment" value={data?.prepaid_payment ?? false} />
-        <CheckBox data_name='transaction' collection_name='ARIdetails' docId={id} name="Transaction" value={data?.transaction ?? false} />
+        {console.log(data?.transaction)}
+        <CheckBox data_name='transaction' collection_name='ARIdetails' docId={id} name="Transaction" value={data?.transaction} />
 
 
 
@@ -74,7 +76,7 @@ const AriDetails = () => {
           docId={id}
           collectionName="ARIdetails"
         />
-        <InputField2
+        <InputField2  
           title="Hotel status"
           inputValue={data?.hotel_status ?? null}
           name="hotel_status"
