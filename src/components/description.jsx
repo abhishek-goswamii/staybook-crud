@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
-import InputField2 from '@/components/InputField2';
-import TextArea from '@/components/textArea';
+import InputField2 from '../components/InputField2';
+import TextArea from '../components/textArea';
 import {deleteDoc, collection, getDocs, doc , updateDoc, addDoc} from "firebase/firestore";
 import { db } from "../../firebase";
 
