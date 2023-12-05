@@ -20,6 +20,7 @@ export default function Home() {
       <div
       style={{
         width:'80%'
+        
       }}
       >
       <div
