@@ -1,9 +1,9 @@
-"use client";
+
 import Attributes from "../components/attributes";
 import AriDetails from "../components/ariDetails";
 import BarItem from "../components/barItem";
 import Navbar from "../components/navbar";
-import Sidebar from "../components/sidebar.jsx";
+import Sidebar from "../components/sidebar";
 import Description from "../components/description";
 import Adress from "../components/adress";
 import { useState } from "react";
