@@ -1,4 +1,4 @@
-
+"use client";
 import Attributes from "../components/attributes";
 import AriDetails from "../components/ariDetails";
 import BarItem from "../components/barItem";
