@@ -1,12 +1,16 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const CheckBox = ({ name, value, data_name, collection_name, docId }) => {
+  const [localValue, setLocalValue] = useState(value || false);
 
+  console.log(localValue, value);
 
-  const [localValue, setlocalValue] = useState(value);
+  useEffect(() => {
+    setLocalValue(value || false);
+  }, [value]);
 
   const handleCheckboxChange = async (newValue) => {
     const docRef = doc(db, collection_name, docId);
@@ -15,8 +19,8 @@ const CheckBox = ({ name, value, data_name, collection_name, docId }) => {
       await updateDoc(docRef, {
         [data_name]: newValue,
       });
-      setlocalValue(newValue)
-      
+
+      setLocalValue(newValue);
     } catch (error) {
       console.error("Error updating document: ", error);
     }

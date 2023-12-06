@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const AriDetails = () => {
 
 
-  const [data, setData] = useState()
+  const [data, setData] = useState({})
   const [id, setId] = useState()
   
 
@@ -21,7 +21,6 @@ const AriDetails = () => {
         const firstDocData = res.docs[0].data();
         setId(res.docs[0].id)
         setData(firstDocData);
-        console.log(firstDocData)
       }
 
 
@@ -30,6 +29,8 @@ const AriDetails = () => {
     fetchData();
   }, []); 
 
+
+  console.log(data)
 
   return (
     <div>
@@ -55,10 +56,7 @@ const AriDetails = () => {
         <CheckBox data_name='hotel_availability' collection_name='ARIdetails' docId={id} name="Hotel availability" value={data?.hotel_availability ?? false} />
         <CheckBox data_name='postpaid_payment' collection_name='ARIdetails' docId={id} name="Postpaid payment" value={data?.postpaid_payment ?? false} />
         <CheckBox data_name='prepaid_payment' collection_name='ARIdetails' docId={id} name="Prepaid payment" value={data?.prepaid_payment ?? false} />
-        {console.log(data?.transaction)}
-        <CheckBox data_name='transaction' collection_name='ARIdetails' docId={id} name="Transaction" value={data?.transaction} />
-
-
+        <CheckBox data_name='transaction' collection_name='ARIdetails' docId={id} name="Transaction" value={data?.transaction??false} />
 
       </div>
 

@@ -9,14 +9,14 @@ import Adress from "../components/adress";
 import { useState } from "react";
 
 export default function Home() {
-  const [activeTabIndex, setActiveTabIndex] = useState(1);
+  const [activeTabIndex, setActiveTabIndex] = useState(2);
 
   return (
     <>
       <Navbar />
     <div className='flex flex-row'
     >
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <div
       style={{
         width:'80%'
@@ -63,6 +63,7 @@ export default function Home() {
       :activeTabIndex==3?<Adress />
       :activeTabIndex==4?<Description />
       :null}
+
       </div>
     </div>
 
