@@ -6,8 +6,6 @@ import { db } from "../../firebase";
 const CheckBox = ({ name, value, data_name, collection_name, docId }) => {
   const [localValue, setLocalValue] = useState(value || false);
 
-  console.log(localValue, value);
-
   useEffect(() => {
     setLocalValue(value || false);
   }, [value]);

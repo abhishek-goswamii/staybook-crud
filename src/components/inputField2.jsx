@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { collection, getDocs, doc , updateDoc} from "firebase/firestore";
+import { collection, getDocs, doc , updateDoc, getDoc} from "firebase/firestore";
 import { db } from "../../firebase";
 
 const InputField2 = ({ placeholderValue, setInputValue, inputValue, name,collectionName,docId,title }) => {
@@ -15,10 +15,28 @@ const InputField2 = ({ placeholderValue, setInputValue, inputValue, name,collect
     setIsEditing(true);
   };
 
-  const handleCancelClick = () => {
-    setValuestate(previousValueBackup)
+const handleCancelClick = async () => {
+  try {
+   
+      const value = collection(db, collectionName)
+      const res = await getDocs(value)
+
+      
+      if (!res.empty) {
+        const firstDocData = res.docs[0].data()
+        console.log(firstDocData[name])
+        
+      const currentValue = firstDocData[name]
+      console.log(currentValue);
+      setValuestate(currentValue);
+
+    }
+
     setIsEditing(false);
-  };
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   const handleUpdateClick =async () => {
 

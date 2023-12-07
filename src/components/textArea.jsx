@@ -11,7 +11,7 @@ import { db } from "../../firebase";
 
 const TextArea = ({ placeholderValue, setInputValue, inputValue, name,collectionName,docId,title }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [valueState, setValueState] = useState(inputValue);
+  const [valueState, setValueState] = useState(inputValue || '');
   let previousValueBackup = inputValue;
 
   const handleEditClick = () => {

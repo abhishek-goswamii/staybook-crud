@@ -9,7 +9,7 @@ import Adress from "../components/adress";
 import { useState } from "react";
 
 export default function Home() {
-  const [activeTabIndex, setActiveTabIndex] = useState(2);
+  const [activeTabIndex, setActiveTabIndex] = useState(4);
 
   return (
     <>
